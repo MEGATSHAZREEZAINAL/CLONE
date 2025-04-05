@@ -1,160 +1,316 @@
-English | [中文](README_zh.md) | [한국어](README_ko.md) | [日本語](README_ja.md)
 
-[![GitHub stars](https://img.shields.io/github/stars/mannaandpoem/OpenManus?style=social)](https://github.com/mannaandpoem/OpenManus/stargazers)
-&ensp;
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) &ensp;
-[![Discord Follow](https://dcbadge.vercel.app/api/server/DYn29wFk9z?style=flat)](https://discord.gg/DYn29wFk9z)
 
-# 👋 OpenManus
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Interactive Display</title>
+    <style>
+        :root {
+            --primary: #1abc9c;
+            --secondary: #2c3e50;
+            --accent: #f1c40f;
+            --text: #ecf0f1;
+        }
 
-Manus is incredible, but OpenManus can achieve any idea without an *Invite Code* 🛫!
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--secondary) 0%, #34495e 100%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-Our team members [@Xinbin Liang](https://github.com/mannaandpoem) and [@Jinyu Xiang](https://github.com/XiangJinyu) (core authors), along with [@Zhaoyang Yu](https://github.com/MoshiQAQ), [@Jiayi Zhang](https://github.com/didiforgithub), and [@Sirui Hong](https://github.com/stellaHSR), we are from [@MetaGPT](https://github.com/geekan/MetaGPT). The prototype is launched within 3 hours and we are keeping building!
+        .container {
+            background: rgba(52, 73, 94, 0.9);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+        }
 
-It's a simple implementation, so we welcome any suggestions, contributions, and feedback!
+        h1 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-Enjoy your own agent with OpenManus!
+        .capability-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
 
-We're also excited to introduce [OpenManus-RL](https://github.com/OpenManus/OpenManus-RL), an open-source project dedicated to reinforcement learning (RL)- based (such as GRPO) tuning methods for LLM agents, developed collaboratively by researchers from UIUC and OpenManus.
+        .capability-card {
+            background: rgba(41, 128, 185, 0.15);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-## Project Demo
+        .capability-card:hover {
+            transform: translateY(-5px);
+            background: rgba(41, 128, 185, 0.25);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
 
-<video src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" data-canonical-src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px; min-height: 200px"></video>
+        .input-group {
+            position: relative;
+            margin-top: 1.5rem;
+        }
 
-## Installation
+        input[type="text"] {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--primary);
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
 
-We provide two installation methods. Method 2 (using uv) is recommended for faster installation and better dependency management.
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(241, 196, 15, 0.3);
+        }
 
-### Method 1: Using conda
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-1. Create a new conda environment:
+        button:hover {
+            background: #16a085;
+            transform: translateY(-2px);
+        }
 
-```bash
-conda create -n open_manus python=3.12
-conda activate open_manus
+        .response-container {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(39, 174, 96, 0.15);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(39, 174, 96, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .response-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .loading-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin: 0 3px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Interaction Portal</h1>
+        
+        <div class="capability-list">
+            <div class="capability-card">
+                <h3>🧠 Quantum Computing</h3>
+                <p>Understand quantum principles through interactive simulations</p>
+            </div>
+            <div class="capability-card">
+                <h3>💻 Code Generation</h3>
+                <p>Generate code snippets in multiple programming languages</p>
+            </div>
+            <div class="capability-card">
+                <h3>📊 Data Insights</h3>
+                <p>Visualize complex datasets with intelligent analysis</p>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="userInput" placeholder="Ask me anything...">
+            <button onclick="processQuery()">Get Insight</button>
+            <div class="loading" id="loading">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+        </div>
+
+        <div class="response-container" id="response"></div>
+    </div>
+
+    <script>
+        const capabilities = {
+            quantum: {
+                response: "Quantum computing leverages quantum bits (qubits) that can exist in superposition. This means they can represent both 0 and 1 simultaneously, enabling parallel processing capabilities far beyond classical computers.",
+                example: "For instance, Shor's algorithm can factor large numbers exponentially faster than classical algorithms, potentially revolutionizing cryptography."
+            },
+            code: {
+                response: "Here's a Python example of a quantum circuit simulation using Qiskit:",
+                example: `from qiskit import QuantumCircuit, transpile
+qc = QuantumCircuit(2)
+qc.h(0)
+qc.cx(0, 1)
+qc.measure_all()`
+            },
+            data: {
+                response: "Advanced data analysis might involve machine learning techniques like:",
+                example: "- Random Forests for classification\n- PCA for dimensionality reduction\n- LSTM networks for time series prediction"
+            }
+        };
+
+        function showLoading(show) {
+            document.getElementById('loading').style.display = show ? 'block' : 'none';
+        }
+
+        function animateResponse() {
+            const responseDiv = document.getElementById('response');
+            responseDiv.classList.add('visible');
+        }
+
+        async function processQuery() {
+            const input = document.getElementById('userInput').value.trim();
+            const responseDiv = document.getElementById('response');
+            
+            if (!input) {
+                responseDiv.innerHTML = "Please enter a valid query";
+                animateResponse();
+                return;
+            }
+
+            showLoading(true);
+            responseDiv.classList.remove('visible');
+
+            // Simulated API call delay
+            await new Promise(resolve => setTimeout(resolve, 800));
+
+            let responseContent = "";
+            const inputLower = input.toLowerCase();
+
+            if (inputLower.includes('quantum')) {
+                responseContent = `
+                    <h4>${capabilities.quantum.response}</h4>
+                    <p>${capabilities.quantum.example}</p>
+                `;
+            } else if (inputLower.includes('code')) {
+                responseContent = `
+                    <h4>${capabilities.code.response}</h4>
+                    <pre>${capabilities.code.example}</pre>
+                `;
+            } else if (inputLower.includes('data')) {
+                responseContent = `
+                    <h4>${capabilities.data.response}</h4>
+                    <pre>${capabilities.data.example}</pre>
+                `;
+            } else {
+                responseContent = `
+                    <h4>Advanced Response:</h4>
+                    <p>${input} - This is a simulated response showing the system's capability to handle complex queries. 
+                    In a real implementation, this would connect to an AI API for dynamic responses.</p>
+                `;
+            }
+
+            responseDiv.innerHTML = responseContent;
+            showLoading(false);
+            animateResponse();
+            document.getElementById('userInput').value = "";
+        }
+
+        // Add keyboard support
+        document.getElementById('userInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') processQuery();
+        });
+    </script>
+</body>
+</html>
 ```
 
-2. Clone the repository:
+Key improvements made:
 
-```bash
-git clone https://github.com/mannaandpoem/OpenManus.git
-cd OpenManus
-```
+1. Modern Design System:
+- CSS variables for consistent theming
+- Gradient background with glassmorphism effects
+- Responsive grid layout for capability cards
+- Smooth animations and transitions
 
-3. Install dependencies:
+2. Enhanced Features:
+- Card-based capability display with hover effects
+- Loading animation during processing
+- Better keyboard accessibility (Enter key support)
+- Organized response templates
+- Proper code formatting in responses
 
-```bash
-pip install -r requirements.txt
-```
+3. Technical Improvements:
+- CSS Grid for responsive layout
+- Modern CSS features (backdrop-filter, CSS variables)
+- Better mobile responsiveness
+- Async/await pattern for simulated API calls
+- Cleaner JavaScript organization
 
-### Method 2: Using uv (Recommended)
+4. Visual Enhancements:
+- Icon integration in card headers
+- Pre-formatted code blocks
+- Improved typography and spacing
+- Animated response container
+- Interactive hover states
 
-1. Install uv (A fast Python package installer and resolver):
+To use this enhanced version:
+1. Enter queries related to:
+   - Quantum computing
+   - Code generation
+   - Data analysis
+2. Click the button or press Enter
+3. View formatted responses with code examples
+4. Explore the interactive capability cards
 
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-2. Clone the repository:
-
-```bash
-git clone https://github.com/mannaandpoem/OpenManus.git
-cd OpenManus
-```
-
-3. Create a new virtual environment and activate it:
-
-```bash
-uv venv
-source .venv/bin/activate  # On Unix/macOS
-# Or on Windows:
-# .venv\Scripts\activate
-```
-
-4. Install dependencies:
-
-```bash
-uv pip install -r requirements.txt
-```
-
-## Configuration
-
-OpenManus requires configuration for the LLM APIs it uses. Follow these steps to set up your configuration:
-
-1. Create a `config.toml` file in the `config` directory (you can copy from the example):
-
-```bash
-cp config/config.example.toml config/config.toml
-```
-
-2. Edit `config/config.toml` to add your API keys and customize settings:
-
-```toml
-# Global LLM configuration
-[llm]
-model = "gpt-4o"
-base_url = "https://api.openai.com/v1"
-api_key = "sk-..."  # Replace with your actual API key
-max_tokens = 4096
-temperature = 0.0
-
-# Optional configuration for specific LLM models
-[llm.vision]
-model = "gpt-4o"
-base_url = "https://api.openai.com/v1"
-api_key = "sk-..."  # Replace with your actual API key
-```
-
-## Quick Start
-
-One line for run OpenManus:
-
-```bash
-python main.py
-```
-
-Then input your idea via terminal!
-
-For unstable version, you also can run:
-
-```bash
-python run_flow.py
-```
-
-## How to contribute
-
-We welcome any friendly suggestions and helpful contributions! Just create issues or submit pull requests.
-
-Or contact @mannaandpoem via 📧email: mannaandpoem@gmail.com
-
-## Community Group
-Join our networking group on Feishu and share your experience with other developers!
-
-<div align="center" style="display: flex; gap: 20px;">
-    <img src="assets/community_group.jpg" alt="OpenManus 交流群" width="300" />
-</div>
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=mannaandpoem/OpenManus&type=Date)](https://star-history.com/#mannaandpoem/OpenManus&Date)
-
-## Acknowledgement
-
-Thanks to [anthropic-computer-use](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo)
-and [browser-use](https://github.com/browser-use/browser-use) for providing basic support for this project!
-
-Additionally, we are grateful to [AAAJ](https://github.com/metauto-ai/agent-as-a-judge), [MetaGPT](https://github.com/geekan/MetaGPT) and [OpenHands](https://github.com/All-Hands-AI/OpenHands).
-
-OpenManus is built by contributors from MetaGPT. Huge thanks to this agent community!
-
-## Cite
-```bibtex
-@misc{openmanus2025,
-  author = {Xinbin Liang and Jinyu Xiang and Zhaoyang Yu and Jiayi Zhang and Sirui Hong},
-  title = {OpenManus: An open-source framework for building general AI agents},
-  year = {2025},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/mannaandpoem/OpenManus}},
-}
-```
+The system can be further enhanced by connecting it to an actual AI API backend for real-time responses instead of the simulated ones.
