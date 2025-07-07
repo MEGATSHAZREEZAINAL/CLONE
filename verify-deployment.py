@@ -31,7 +31,8 @@ def check_dependencies():
         'fastapi',
         'uvicorn',
         'playwright',
-        'aiofiles'
+        'aiofiles',
+        'google.generativeai'
     ]
     
     missing_packages = []
@@ -65,15 +66,28 @@ def check_config_file():
     # Check if API key is configured
     with open(config_path, 'r') as f:
         content = f.read()
-        if 'sk-...' in content:
+        if 'REPLACE_WITH_YOUR_API_KEY' in content:
             print("⚠️  API key placeholder detected - you need to configure real API keys")
             return False
         elif 'api_key = ""' in content or 'your-api-key' in content:
             print("⚠️  API key not configured - you need to add real API keys")
             return False
         else:
-            print("✅ API key appears to be configured")
-            return True
+            # Check for valid API key formats
+            import re
+            api_key_match = re.search(r'api_key = ["\']([^"\']+)["\']', content)
+            if api_key_match:
+                api_key = api_key_match.group(1)
+                if api_key.startswith('sk-'):
+                    print("✅ OpenAI/Claude API key configured")
+                elif api_key.startswith('AIza'):
+                    print("✅ Google Gemini API key configured")
+                else:
+                    print(f"⚠️  Unknown API key format: {api_key[:10]}...")
+                return True
+            else:
+                print("⚠️  No API key found in configuration")
+                return False
 
 def check_playwright_browsers():
     """Check if Playwright browsers are installed."""

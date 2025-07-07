@@ -44,7 +44,19 @@ if grep -q "REPLACE_WITH_YOUR_API_KEY" config/config.toml; then
     echo "   Please edit config/config.toml and replace 'REPLACE_WITH_YOUR_API_KEY' with your actual API key"
     echo "   For OpenAI: Get from https://platform.openai.com/api-keys"
     echo "   For Claude: Get from https://console.anthropic.com/"
+    echo "   For Gemini: Get from https://aistudio.google.com/app/apikey"
     exit 1
+fi
+
+# Check for valid API key format
+api_key=$(grep 'api_key = ' config/config.toml | head -1 | cut -d'"' -f2)
+if [[ "$api_key" == "sk-"* ]]; then
+    echo "✅ OpenAI/Claude API key detected"
+elif [[ "$api_key" == "AIza"* ]]; then
+    echo "✅ Google Gemini API key detected"
+else
+    echo "⚠️  Unknown API key format: $api_key"
+    echo "   Make sure your API key is valid"
 fi
 
 # Run the application

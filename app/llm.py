@@ -14,6 +14,13 @@ from app.config import LLMSettings, config
 from app.logger import logger  # Assuming a logger is set up in your app
 from app.schema import Message, TOOL_CHOICE_TYPE, ROLE_VALUES, TOOL_CHOICE_VALUES, ToolChoice
 
+try:
+    from app.llm_gemini import GeminiAdapter
+    GEMINI_AVAILABLE = True
+except ImportError:
+    GEMINI_AVAILABLE = False
+    logger.warning("Gemini adapter not available. Install google-generativeai to use Gemini API.")
+
 
 class LLM:
     _instances: Dict[str, "LLM"] = {}
@@ -40,7 +47,14 @@ class LLM:
             self.api_key = llm_config.api_key
             self.api_version = llm_config.api_version
             self.base_url = llm_config.base_url
-            if self.api_type == "azure":
+            
+            # Detect if this is a Gemini API configuration
+            self.is_gemini = self._is_gemini_config(llm_config)
+            
+            if self.is_gemini and GEMINI_AVAILABLE:
+                logger.info(f"Using Gemini API with model: {self.model}")
+                self.client = GeminiAdapter(llm_config)
+            elif self.api_type == "azure":
                 self.client = AsyncAzureOpenAI(
                     base_url=self.base_url,
                     api_key=self.api_key,
@@ -48,6 +62,19 @@ class LLM:
                 )
             else:
                 self.client = AsyncOpenAI(api_key=self.api_key, base_url=self.base_url)
+
+    def _is_gemini_config(self, llm_config: LLMSettings) -> bool:
+        """Detect if this configuration is for Gemini API."""
+        # Check if API key is Google AI format
+        if llm_config.api_key.startswith("AIza"):
+            return True
+        # Check if model name contains gemini
+        if "gemini" in llm_config.model.lower():
+            return True
+        # Check if base URL is Google's
+        if "generativelanguage.googleapis.com" in llm_config.base_url:
+            return True
+        return False
 
     @staticmethod
     def format_messages(messages: List[Union[dict, Message]]) -> List[dict]:
@@ -126,6 +153,16 @@ class LLM:
             Exception: For unexpected errors
         """
         try:
+            # If using Gemini adapter, delegate to it directly
+            if self.is_gemini and isinstance(self.client, GeminiAdapter):
+                return await self.client.ask(
+                    messages=messages,
+                    system_msgs=system_msgs,
+                    stream=stream,
+                    temperature=temperature
+                )
+            
+            # Standard OpenAI/Azure path
             # Format system and user messages
             if system_msgs:
                 system_msgs = self.format_messages(system_msgs)
@@ -212,6 +249,22 @@ class LLM:
             Exception: For unexpected errors
         """
         try:
+            # If using Gemini adapter, delegate to it
+            if self.is_gemini and isinstance(self.client, GeminiAdapter):
+                logger.warning("Tool calling with Gemini - falling back to regular ask method")
+                response_text = await self.client.ask(
+                    messages=messages,
+                    system_msgs=system_msgs,
+                    temperature=temperature
+                )
+                # Create a mock response object similar to OpenAI format
+                class MockMessage:
+                    def __init__(self, content):
+                        self.content = content
+                        self.tool_calls = None
+                return MockMessage(response_text)
+            
+            # Standard OpenAI/Azure path
             # Validate tool_choice
             if tool_choice not in TOOL_CHOICE_VALUES:
                 raise ValueError(f"Invalid tool_choice: {tool_choice}")

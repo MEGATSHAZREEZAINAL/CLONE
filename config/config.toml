@@ -1,11 +1,9 @@
-# Global LLM configuration
+# Global LLM configuration - Using Google Gemini
 [llm]
-model = "claude-3-5-sonnet"
-base_url = "https://api.openai.com/v1"
-# REQUIRED: Replace with your actual API key
-# For OpenAI: Get from https://platform.openai.com/api-keys
-# For Claude: Get from https://console.anthropic.com/ and change base_url to "https://api.anthropic.com"
-api_key = "REPLACE_WITH_YOUR_API_KEY"
+model = "gemini-1.5-pro"
+base_url = "https://generativelanguage.googleapis.com/v1beta"
+# Google Gemini API Key configured
+api_key = "AIzaSyAITnrTX617C7X1N4RnCZ9LfM5j7Rx7KP4"
 max_tokens = 4096
 temperature = 0.0
 
@@ -36,10 +34,10 @@ temperature = 0.0
 
 # Optional configuration for specific LLM models
 [llm.vision]
-model = "claude-3-5-sonnet"
-base_url = "https://api.openai.com/v1"
-# Use the same API key as above or specify a different one for vision tasks
-api_key = "REPLACE_WITH_YOUR_API_KEY"
+model = "gemini-1.5-pro"
+base_url = "https://generativelanguage.googleapis.com/v1beta"
+# Using the same Gemini API key for vision tasks
+api_key = "AIzaSyAITnrTX617C7X1N4RnCZ9LfM5j7Rx7KP4"
 
 # Optional configuration for specific browser configuration
 [browser]
