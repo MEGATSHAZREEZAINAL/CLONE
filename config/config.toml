@@ -2,9 +2,28 @@
 [llm]
 model = "claude-3-5-sonnet"
 base_url = "https://api.openai.com/v1"
-api_key = "sk-..."
+# REQUIRED: Replace with your actual API key
+# For OpenAI: Get from https://platform.openai.com/api-keys
+# For Claude: Get from https://console.anthropic.com/ and change base_url to "https://api.anthropic.com"
+api_key = "REPLACE_WITH_YOUR_API_KEY"
 max_tokens = 4096
 temperature = 0.0
+
+# Example configurations for different providers:
+
+# [llm] # OpenAI GPT-4o
+# model = "gpt-4o"
+# base_url = "https://api.openai.com/v1"
+# api_key = "sk-your-openai-key-here"
+# max_tokens = 4096
+# temperature = 0.0
+
+# [llm] # Anthropic Claude
+# model = "claude-3-5-sonnet-20241022"
+# base_url = "https://api.anthropic.com"
+# api_key = "sk-ant-your-anthropic-key-here"
+# max_tokens = 4096
+# temperature = 0.0
 
 # [llm] #AZURE OPENAI:
 # api_type= 'azure'
@@ -19,16 +38,17 @@ temperature = 0.0
 [llm.vision]
 model = "claude-3-5-sonnet"
 base_url = "https://api.openai.com/v1"
-api_key = "sk-..."
+# Use the same API key as above or specify a different one for vision tasks
+api_key = "REPLACE_WITH_YOUR_API_KEY"
 
 # Optional configuration for specific browser configuration
-# [browser]
-# Whether to run browser in headless mode (default: false)
-#headless = false
-# Disable browser security features (default: true)
-#disable_security = true
+[browser]
+# Whether to run browser in headless mode (recommended for production)
+headless = true
+# Disable browser security features (required for automation)
+disable_security = true
 # Extra arguments to pass to the browser
-#extra_chromium_args = []
+extra_chromium_args = ["--no-sandbox", "--disable-dev-shm-usage"]
 # Path to a Chrome instance to use to connect to your normal browser
 # e.g. '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 #chrome_instance_path = ""
