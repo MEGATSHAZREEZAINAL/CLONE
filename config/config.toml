@@ -1,6 +1,6 @@
-# Global LLM configuration - Using Google Gemini
+# Global LLM configuration - Using Google Gemini Flash (Higher Free Tier Limits)
 [llm]
-model = "gemini-1.5-pro"
+model = "gemini-1.5-flash"
 base_url = "https://generativelanguage.googleapis.com/v1beta"
 # Google Gemini API Key configured
 api_key = "AIzaSyAITnrTX617C7X1N4RnCZ9LfM5j7Rx7KP4"
@@ -34,7 +34,7 @@ temperature = 0.0
 
 # Optional configuration for specific LLM models
 [llm.vision]
-model = "gemini-1.5-pro"
+model = "gemini-1.5-flash"
 base_url = "https://generativelanguage.googleapis.com/v1beta"
 # Using the same Gemini API key for vision tasks
 api_key = "AIzaSyAITnrTX617C7X1N4RnCZ9LfM5j7Rx7KP4"
