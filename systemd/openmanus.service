@@ -1,0 +1,29 @@
+[Unit]
+Description=OpenManus AI Agent
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=openmanus
+Group=openmanus
+WorkingDirectory=/opt/openmanus
+Environment=PYTHONUNBUFFERED=1
+Environment=DISPLAY=:99
+ExecStartPre=/usr/bin/Xvfb :99 -screen 0 1024x768x24
+ExecStart=/opt/openmanus/.venv/bin/python main.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=openmanus
+
+# Security settings
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/openmanus
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

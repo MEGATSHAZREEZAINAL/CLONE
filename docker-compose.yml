@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  openmanus:
+    build: .
+    container_name: openmanus-agent
+    volumes:
+      # Mount config directory for persistent configuration
+      - ./config:/app/config
+      # Mount a directory for any output files
+      - ./output:/app/output
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DISPLAY=:99
+    stdin_open: true
+    tty: true
+    # Uncomment the following if you need to expose a web interface in the future
+    # ports:
+    #   - "8000:8000"
+    
+    # Add security options for browser automation
+    security_opt:
+      - seccomp:unconfined
+    shm_size: 2gb
+    
+    # Restart policy
+    restart: unless-stopped
