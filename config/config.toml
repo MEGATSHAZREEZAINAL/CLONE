@@ -2,8 +2,8 @@
 [llm]
 model = "gemini-1.5-flash"
 base_url = "https://generativelanguage.googleapis.com/v1beta"
-# Google Gemini API Key configured
-api_key = "AIzaSyAITnrTX617C7X1N4RnCZ9LfM5j7Rx7KP4"
+# Google Gemini API Key configured - UPDATED
+api_key = "AIzaSyAw2gROMlUaIVj11Uy-lsDfxN39rNVeq_0"
 max_tokens = 4096
 temperature = 0.0
 
@@ -36,8 +36,8 @@ temperature = 0.0
 [llm.vision]
 model = "gemini-1.5-flash"
 base_url = "https://generativelanguage.googleapis.com/v1beta"
-# Using the same Gemini API key for vision tasks
-api_key = "AIzaSyAITnrTX617C7X1N4RnCZ9LfM5j7Rx7KP4"
+# Using the same Gemini API key for vision tasks - UPDATED
+api_key = "AIzaSyAw2gROMlUaIVj11Uy-lsDfxN39rNVeq_0"
 
 # Optional configuration for specific browser configuration
 [browser]
