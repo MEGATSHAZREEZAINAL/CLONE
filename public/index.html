@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenManus AI Agent</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #333;
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        textarea { 
+            width: 100%; 
+            height: 120px; 
+            padding: 15px; 
+            border-radius: 8px; 
+            border: 2px solid #ddd; 
+            font-size: 16px;
+            resize: vertical;
+            font-family: inherit;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        button { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 15px 30px; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        button:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .result { 
+            margin-top: 25px; 
+            padding: 20px; 
+            background: #f8f9fa; 
+            border-radius: 8px; 
+            border-left: 4px solid #667eea; 
+            display: none;
+        }
+        .error { 
+            border-left-color: #e74c3c; 
+            background: #ffeaea; 
+        }
+        .loading { 
+            display: none; 
+            color: #667eea; 
+            text-align: center;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+        .examples {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .examples h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .example-item {
+            background: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            transition: all 0.2s ease;
+        }
+        .example-item:hover {
+            background: #667eea;
+            color: white;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 OpenManus AI Agent</h1>
+            <p>Intelligent task automation powered by AI</p>
+        </div>
+        
+        <div class="examples">
+            <h3>💡 Example Tasks:</h3>
+            <div class="example-item" onclick="setExample('Search Google for latest iPhone 15 price and specifications')">
+                📱 Search for iPhone 15 information
+            </div>
+            <div class="example-item" onclick="setExample('Find current weather in Kuala Lumpur and temperature forecast')">
+                🌤️ Get weather forecast for KL
+            </div>
+            <div class="example-item" onclick="setExample('Research latest AI technology trends in 2024')">
+                🤖 Research AI technology trends
+            </div>
+            <div class="example-item" onclick="setExample('Find top 5 programming languages for beginners')">
+                💻 Programming languages guide
+            </div>
+        </div>
+        
+        <form id="taskForm">
+            <textarea id="prompt" placeholder="Enter your task here... For example: 'Search Google for latest technology news and summarize the top 3 articles'" required></textarea>
+            <div class="button-container">
+                <button type="submit" id="submitBtn">Execute Task</button>
+            </div>
+            <div class="loading" id="loading">
+                <div class="spinner"></div>Processing your request...
+            </div>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+    
+    <script>
+    function setExample(text) {
+        document.getElementById('prompt').value = text;
+    }
+
+    document.getElementById('taskForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const prompt = document.getElementById('prompt').value;
+        const loading = document.getElementById('loading');
+        const result = document.getElementById('result');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        loading.style.display = 'block';
+        result.style.display = 'none';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Processing...';
+        
+        try {
+            const response = await fetch('/api/execute', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt: prompt })
+            });
+            
+            const data = await response.json();
+            
+            result.innerHTML = data.success 
+                ? `<h3>✅ Task Completed Successfully</h3><pre style="white-space: pre-wrap; font-family: inherit;">${data.result}</pre>`
+                : `<h3>❌ Task Failed</h3><p><strong>Error:</strong> ${data.error}</p><p><em>This might be due to Firebase Cloud Functions limitations with browser automation. Consider trying Railway or Render for full functionality.</em></p>`;
+            result.className = data.success ? 'result' : 'result error';
+            result.style.display = 'block';
+            
+        } catch (error) {
+            result.innerHTML = `<h3>❌ Network Error</h3><p><strong>Error:</strong> ${error.message}</p><p><em>Make sure the backend is running and accessible.</em></p>`;
+            result.className = 'result error';
+            result.style.display = 'block';
+        }
+        
+        loading.style.display = 'none';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Execute Task';
+    });
+    </script>
+</body>
+</html>

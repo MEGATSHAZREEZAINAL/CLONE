@@ -1,0 +1,10 @@
+functions-framework==3.*
+pydantic==2.10.4
+google-generativeai==0.8.3
+tenacity==9.0.0
+aiofiles==24.1.0
+loguru==0.7.3
+
+# Note: Browser automation dependencies like playwright
+# may not work reliably in Firebase Cloud Functions
+# Consider using Google Cloud Run for full functionality
