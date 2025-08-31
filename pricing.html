@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Dart AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="announcement-bar">
+            Dart <a href="https://news.ycombinator.com/item?id=39442368">posted on Hacker News</a> and <a href="https://www.ycombinator.com/launches/KR4-dart-ai-powered-project-management">is live on Launch YC</a> today only—check it out!
+        </div>
+        <nav>
+            <div class="logo">
+                <a href="/">Dart</a>
+            </div>
+            <button class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="https://app.dartai.com/sign-up" class="btn-primary">Get Started for Free!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pricing-header" style="background-color: var(--light-background); padding: 6rem 0; text-align: center;">
+            <div class="container">
+                <h1>Simple, Transparent Pricing</h1>
+                <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--light-text);">Choose the plan that's right for you and your team. All plans include core features.</p>
+                
+                <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: center; background-color: var(--background-color); border-radius: 30px; padding: 0.5rem; box-shadow: var(--box-shadow);">
+                        <button id="monthly-toggle" class="pricing-toggle active" style="padding: 0.75rem 1.5rem; border-radius: 30px; border: none; background-color: var(--primary-color); color: white; cursor: pointer; font-weight: 500; transition: var(--transition);">Monthly</button>
+                        <button id="annual-toggle" class="pricing-toggle" style="padding: 0.75rem 1.5rem; border-radius: 30px; border: none; background-color: transparent; cursor: pointer; font-weight: 500; transition: var(--transition);">Annual (Save 20%)</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="pricing-table">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="pricing-price" data-monthly="$0" data-annual="$0">$0 <span>/ month</span></div>
+                    <p>Perfect for individuals and small projects</p>
+                    <ul class="pricing-features">
+                        <li>Up to 3 projects</li>
+                        <li>Basic task management</li>
+                        <li>Limited AI features</li>
+                        <li>1 team member</li>
+                        <li class="unavailable">Advanced AI capabilities</li>
+                        <li class="unavailable">Custom integrations</li>
+                        <li class="unavailable">Priority support</li>
+                    </ul>
+                    <a href="auth.html" class="btn-secondary">Get Started</a>
+                </div>
+
+                <div class="pricing-card popular">
+                    <h3>Pro</h3>
+                    <div class="pricing-price" data-monthly="$12" data-annual="$9.60">$12 <span>/ month per user</span></div>
+                    <p>For growing teams and businesses</p>
+                    <ul class="pricing-features">
+                        <li>Unlimited projects</li>
+                        <li>Advanced task management</li>
+                        <li>Full AI capabilities</li>
+                        <li>Up to 10 team members</li>
+                        <li>Basic integrations</li>
+                        <li>Standard support</li>
+                        <li class="unavailable">Custom workflows</li>
+                    </ul>
+                    <a href="auth.html" class="btn-primary">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Business</h3>
+                    <div class="pricing-price" data-monthly="$29" data-annual="$23.20">$29 <span>/ month per user</span></div>
+                    <p>For larger teams and organizations</p>
+                    <ul class="pricing-features">
+                        <li>Unlimited projects</li>
+                        <li>Advanced task management</li>
+                        <li>Full AI capabilities</li>
+                        <li>Unlimited team members</li>
+                        <li>All integrations</li>
+                        <li>Priority support</li>
+                        <li>Custom workflows</li>
+                    </ul>
+                    <a href="auth.html" class="btn-secondary">Get Started</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0 4rem;">
+                <h3>Need a custom plan?</h3>
+                <p style="max-width: 600px; margin: 1rem auto 2rem;">We offer custom plans for large organizations with specific needs. Contact our sales team to learn more.</p>
+                <a href="contact.html" class="btn-primary">Contact Sales</a>
+            </div>
+        </section>
+
+        <section style="background-color: var(--light-background); padding: 4rem 0;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 3rem;">Frequently Asked Questions</h2>
+                
+                <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+                    <div class="faq-item" style="margin-bottom: 1.5rem; background-color: var(--background-color); border-radius: var(--border-radius); padding: 1.5rem; box-shadow: var(--box-shadow);">
+                        <h3 style="margin-bottom: 0.75rem; cursor: pointer;">
+                            <span>Can I switch plans later?</span>
+                            <i class="fas fa-chevron-down" style="float: right;"></i>
+                        </h3>
+                        <div class="faq-answer" style="display: none; padding-top: 0.75rem; color: var(--light-text);">
+                            <p>Yes, you can upgrade or downgrade your plan at any time. When upgrading, you'll be charged the prorated difference for the remainder of your billing cycle. When downgrading, the new rate will apply at the start of your next billing cycle.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" style="margin-bottom: 1.5rem; background-color: var(--background-color); border-radius: var(--border-radius); padding: 1.5rem; box-shadow: var(--box-shadow);">
+                        <h3 style="margin-bottom: 0.75rem; cursor: pointer;">
+                            <span>Is there a free trial?</span>
+                            <i class="fas fa-chevron-down" style="float: right;"></i>
+                        </h3>
+                        <div class="faq-answer" style="display: none; padding-top: 0.75rem; color: var(--light-text);">
+                            <p>Yes, all paid plans come with a 14-day free trial. No credit card is required to start your trial. You can upgrade to a paid plan at any time during or after your trial.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" style="margin-bottom: 1.5rem; background-color: var(--background-color); border-radius: var(--border-radius); padding: 1.5rem; box-shadow: var(--box-shadow);">
+                        <h3 style="margin-bottom: 0.75rem; cursor: pointer;">
+                            <span>What payment methods do you accept?</span>
+                            <i class="fas fa-chevron-down" style="float: right;"></i>
+                        </h3>
+                        <div class="faq-answer" style="display: none; padding-top: 0.75rem; color: var(--light-text);">
+                            <p>We accept all major credit cards (Visa, Mastercard, American Express, Discover) and PayPal. For annual Business plans, we also offer invoicing and bank transfer options.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" style="margin-bottom: 1.5rem; background-color: var(--background-color); border-radius: var(--border-radius); padding: 1.5rem; box-shadow: var(--box-shadow);">
+                        <h3 style="margin-bottom: 0.75rem; cursor: pointer;">
+                            <span>Can I cancel my subscription?</span>
+                            <i class="fas fa-chevron-down" style="float: right;"></i>
+                        </h3>
+                        <div class="faq-answer" style="display: none; padding-top: 0.75rem; color: var(--light-text);">
+                            <p>Yes, you can cancel your subscription at any time. When you cancel, you'll retain access to your paid features until the end of your current billing cycle. After that, your account will be downgraded to the Free plan.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" style="margin-bottom: 1.5rem; background-color: var(--background-color); border-radius: var(--border-radius); padding: 1.5rem; box-shadow: var(--box-shadow);">
+                        <h3 style="margin-bottom: 0.75rem; cursor: pointer;">
+                            <span>Do you offer discounts for nonprofits or educational institutions?</span>
+                            <i class="fas fa-chevron-down" style="float: right;"></i>
+                        </h3>
+                        <div class="faq-answer" style="display: none; padding-top: 0.75rem; color: var(--light-text);">
+                            <p>Yes, we offer special pricing for nonprofits, educational institutions, and open-source projects. Please contact our sales team to learn more about our discount programs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h3>Dart</h3>
+                    <p>AI-powered project management</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="integrations.html">Integrations</a></li>
+                        <li><a href="index.html#solutions">Solutions</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest updates</p>
+                    <form>
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dart AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Pricing toggle functionality
+        const monthlyToggle = document.getElementById('monthly-toggle');
+        const annualToggle = document.getElementById('annual-toggle');
+        const pricingElements = document.querySelectorAll('.pricing-price');
+        
+        monthlyToggle.addEventListener('click', () => {
+            monthlyToggle.classList.add('active');
+            annualToggle.classList.remove('active');
+            
+            // Update pricing to monthly
+            pricingElements.forEach(el => {
+                const monthlyPrice = el.getAttribute('data-monthly');
+                el.innerHTML = `${monthlyPrice} <span>/ month</span>`;
+            });
+        });
+        
+        annualToggle.addEventListener('click', () => {
+            annualToggle.classList.add('active');
+            monthlyToggle.classList.remove('active');
+            
+            // Update pricing to annual
+            pricingElements.forEach(el => {
+                const annualPrice = el.getAttribute('data-annual');
+                el.innerHTML = `${annualPrice} <span>/ month, billed annually</span>`;
+            });
+        });
+        
+        // FAQ accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item h3');
+        
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                const icon = item.querySelector('i');
+                
+                // Toggle answer visibility
+                if (answer.style.display === 'none' || !answer.style.display) {
+                    answer.style.display = 'block';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    answer.style.display = 'none';
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

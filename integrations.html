@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrations - Dart AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .integrations-header {
+            background-color: var(--light-background);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .integrations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .integration-card {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .integration-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .integration-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            background-color: var(--light-background);
+            border-radius: 50%;
+        }
+        
+        .integration-card h3 {
+            margin-bottom: 0.75rem;
+        }
+        
+        .integration-card p {
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+        }
+        
+        .integration-cta {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--light-background);
+            border-radius: var(--border-radius);
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .integration-cta:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="announcement-bar">
+            Dart <a href="https://news.ycombinator.com/item?id=39442368">posted on Hacker News</a> and <a href="https://www.ycombinator.com/launches/KR4-dart-ai-powered-project-management">is live on Launch YC</a> today only—check it out!
+        </div>
+        <nav>
+            <div class="logo">
+                <a href="/">Dart</a>
+            </div>
+            <button class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="auth.html" class="btn-primary">Get Started for Free!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="integrations-header">
+            <div class="container">
+                <h1>Integrations</h1>
+                <p>Connect Dart with your favorite tools to streamline your workflow</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="integrations-grid">
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>Connect your GitHub repositories to track issues, pull requests, and code changes directly in Dart.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fab fa-slack"></i>
+                    </div>
+                    <h3>Slack</h3>
+                    <p>Get notifications and updates in Slack, and create tasks directly from Slack messages.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Google Workspace</h3>
+                    <p>Integrate with Google Calendar, Drive, and other Google Workspace apps for seamless collaboration.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <h3>Microsoft 365</h3>
+                    <p>Connect with Microsoft Teams, Outlook, and other Microsoft 365 apps to enhance productivity.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <h3>Figma</h3>
+                    <p>Link design files and prototypes directly to tasks for better design-development collaboration.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fab fa-jira"></i>
+                    </div>
+                    <h3>Jira</h3>
+                    <p>Sync tasks between Dart and Jira to maintain consistency across your project management tools.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fab fa-salesforce"></i>
+                    </div>
+                    <h3>Salesforce</h3>
+                    <p>Connect your CRM data to align sales and project teams for better customer outcomes.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fab fa-dropbox"></i>
+                    </div>
+                    <h3>Dropbox</h3>
+                    <p>Link files and documents from Dropbox directly to your tasks and projects.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fab fa-trello"></i>
+                    </div>
+                    <h3>Trello</h3>
+                    <p>Import your Trello boards and cards to Dart for a seamless transition.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fab fa-gitlab"></i>
+                    </div>
+                    <h3>GitLab</h3>
+                    <p>Track merge requests, issues, and code changes from GitLab in your Dart workspace.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fab fa-bitbucket"></i>
+                    </div>
+                    <h3>Bitbucket</h3>
+                    <p>Connect your Bitbucket repositories to track pull requests and code changes.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+
+                <div class="integration-card">
+                    <div class="integration-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Zapier</h3>
+                    <p>Connect Dart with thousands of other apps through Zapier automations.</p>
+                    <a href="#" class="integration-cta">Connect</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="text-align: center; margin: 4rem auto;">
+            <h2>Don't see the integration you need?</h2>
+            <p style="max-width: 600px; margin: 1rem auto 2rem;">We're constantly adding new integrations. Let us know what you need, and we'll prioritize it in our roadmap.</p>
+            <a href="contact.html" class="btn-primary">Request an Integration</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h3>Dart</h3>
+                    <p>AI-powered project management</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="integrations.html">Integrations</a></li>
+                        <li><a href="index.html#solutions">Solutions</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest updates</p>
+                    <form>
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dart AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast container for notifications -->
+    <div class="toast-container"></div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

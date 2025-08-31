@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dart AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background-color: #e5e7eb;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+        
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .team-role {
+            color: var(--light-text);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        
+        .team-social a {
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+        
+        .team-social a:hover {
+            color: var(--primary-color);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: var(--border-color);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-content {
+            position: relative;
+            width: calc(50% - 2rem);
+            padding: 1.5rem;
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 1.5rem;
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            left: -2.5rem;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: -2.5rem;
+        }
+        
+        .timeline-date {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .timeline-title {
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-description {
+            color: var(--light-text);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 1rem;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 3rem);
+                margin-left: 3rem !important;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -2.5rem;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="announcement-bar">
+            Dart <a href="https://news.ycombinator.com/item?id=39442368">posted on Hacker News</a> and <a href="https://www.ycombinator.com/launches/KR4-dart-ai-powered-project-management">is live on Launch YC</a> today only—check it out!
+        </div>
+        <nav>
+            <div class="logo">
+                <a href="/">Dart</a>
+            </div>
+            <button class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="https://app.dartai.com/sign-up" class="btn-primary">Get Started for Free!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-header" style="background-color: var(--light-background); padding: 6rem 0; text-align: center;">
+            <div class="container">
+                <h1>About Dart</h1>
+                <p style="max-width: 700px; margin: 0 auto 2rem; color: var(--light-text); font-size: 1.25rem;">We're on a mission to revolutionize project management with AI, helping teams work smarter and achieve more.</p>
+            </div>
+        </section>
+
+        <section class="container" style="padding: 6rem 0;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div>
+                    <h2>Our Story</h2>
+                    <p>Dart was founded in 2023 by a team of engineers, designers, and product managers who were frustrated with the limitations of existing project management tools. We saw an opportunity to leverage the power of AI to create a more intelligent, intuitive, and efficient way to manage projects.</p>
+                    <p>Our team has experience working at leading technology companies like Google, Microsoft, and Atlassian, and we've brought that expertise to Dart. We're passionate about creating tools that help teams work better together and achieve their goals.</p>
+                    <p>Today, Dart is used by thousands of teams around the world, from startups to Fortune 500 companies. We're proud to be helping teams work smarter and achieve more with less effort.</p>
+                </div>
+                <div style="background-color: var(--light-background); border-radius: var(--border-radius); overflow: hidden; height: 400px; display: flex; align-items: center; justify-content: center;">
+                    <div style="font-size: 5rem; color: var(--primary-color);">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: var(--light-background); padding: 6rem 0; text-align: center;">
+            <div class="container">
+                <h2>Our Mission</h2>
+                <p style="max-width: 700px; margin: 0 auto 3rem;">We believe that AI has the power to transform how teams work together. Our mission is to create tools that harness this power to make project management more efficient, effective, and enjoyable.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div style="background-color: var(--background-color); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                        <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>We're constantly pushing the boundaries of what's possible with AI and project management.</p>
+                    </div>
+                    
+                    <div style="background-color: var(--background-color); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                        <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Collaboration</h3>
+                        <p>We believe that great work happens when teams work together seamlessly.</p>
+                    </div>
+                    
+                    <div style="background-color: var(--background-color); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                        <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Impact</h3>
+                        <p>We measure our success by the impact we have on our customers' productivity and success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="padding: 6rem 0;">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Our Journey</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2023</div>
+                        <h3 class="timeline-title">Dart is Born</h3>
+                        <p class="timeline-description">Our founding team comes together with a vision to revolutionize project management with AI.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">April 2023</div>
+                        <h3 class="timeline-title">Seed Funding</h3>
+                        <p class="timeline-description">We secure $2.5M in seed funding to build our first prototype and grow our team.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 2023</div>
+                        <h3 class="timeline-title">Beta Launch</h3>
+                        <p class="timeline-description">We launch our beta product to 100 early adopters who provide invaluable feedback.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">October 2023</div>
+                        <h3 class="timeline-title">Public Launch</h3>
+                        <p class="timeline-description">Dart officially launches to the public, with thousands of users signing up in the first week.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2024</div>
+                        <h3 class="timeline-title">Series A Funding</h3>
+                        <p class="timeline-description">We raise $10M in Series A funding to accelerate growth and expand our team.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Today</div>
+                        <h3 class="timeline-title">Growing Strong</h3>
+                        <p class="timeline-description">Dart is now used by thousands of teams worldwide, with new features and improvements released every week.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: var(--light-background); padding: 6rem 0;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 1rem;">Meet Our Team</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: var(--light-text);">We're a diverse team of engineers, designers, and product managers passionate about creating the best project management tool in the world.</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="team-name">Sarah Chen</h3>
+                        <p class="team-role">CEO & Co-Founder</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="team-name">Michael Rodriguez</h3>
+                        <p class="team-role">CTO & Co-Founder</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="team-name">Aisha Patel</h3>
+                        <p class="team-role">Head of Product</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="team-name">David Kim</h3>
+                        <p class="team-role">Lead Engineer</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="team-name">Emma Wilson</h3>
+                        <p class="team-role">Head of Design</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="team-name">James Thompson</h3>
+                        <p class="team-role">Head of Marketing</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="padding: 6rem 0; text-align: center;">
+            <h2>Join Our Team</h2>
+            <p style="max-width: 700px; margin: 0 auto 2rem;">We're always looking for talented individuals to join our team. If you're passionate about AI, project management, and creating great user experiences, we'd love to hear from you.</p>
+            <a href="careers.html" class="btn-primary">View Open Positions</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h3>Dart</h3>
+                    <p>AI-powered project management</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="integrations.html">Integrations</a></li>
+                        <li><a href="index.html#solutions">Solutions</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest updates</p>
+                    <form>
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dart AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
