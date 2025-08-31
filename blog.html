@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Dart AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .blog-header {
+            background-color: var(--light-background);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .blog-card {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background-color: #e5e7eb;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--light-text);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-card h3 {
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-card p {
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+        }
+        
+        .read-more {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="announcement-bar">
+            Dart <a href="https://news.ycombinator.com/item?id=39442368">posted on Hacker News</a> and <a href="https://www.ycombinator.com/launches/KR4-dart-ai-powered-project-management">is live on Launch YC</a> today only—check it out!
+        </div>
+        <nav>
+            <div class="logo">
+                <a href="/">Dart</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#integrations">Integrations</a></li>
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="https://app.dartai.com/sign-up" class="btn-primary">Get Started for Free!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-header">
+            <div class="container">
+                <h1>Dart Blog</h1>
+                <p>Insights, tips, and news about AI project management</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image" style="background-color: #4f46e5;"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>May 16, 2023</span>
+                            <span>7 min read</span>
+                        </div>
+                        <h3>22 Top AI Tools in 2025: Tried, Tested, and Trusted</h3>
+                        <p>Did you know that 73% of business leaders believe that AI will be crucial to driving competitive advantage within the next three years? As AI tools evolve, they are increasingly integrated into everyday work processes...</p>
+                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image" style="background-color: #6366f1;"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>March 31, 2025</span>
+                            <span>12 min read</span>
+                        </div>
+                        <h3>How Can AI Help Reduce Project Expenses: A Deep Dive into AI-Powered Cost Optimization</h3>
+                        <p>Did you know that businesses waste up to 30% of their budgets due to inefficiencies, misallocations, and unexpected expenses? How can AI help reduce project expenses in a world where cost overruns are the norm?</p>
+                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image" style="background-color: #818cf8;"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>June 29, 2025</span>
+                            <span>10 min read</span>
+                        </div>
+                        <h3>How AI is Revolutionizing Clinical Trial Projects: The New Standard</h3>
+                        <p>Clinical trials used to move slower than medical paperwork - now, some wrap up in half the time. From automating the unthinkable to predicting outcomes before patients enroll, the change is real...</p>
+                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image" style="background-color: #a5b4fc;"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>April 15, 2025</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3>The Future of Project Management: AI-Driven Insights</h3>
+                        <p>Project management is evolving rapidly with AI at the forefront. Discover how predictive analytics, automated task allocation, and intelligent resource management are transforming how teams work...</p>
+                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image" style="background-color: #c7d2fe;"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>February 22, 2025</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3>5 Ways AI Can Boost Team Productivity</h3>
+                        <p>Teams are constantly looking for ways to improve productivity and efficiency. Learn how AI tools can automate routine tasks, provide valuable insights, and help teams focus on high-value work...</p>
+                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image" style="background-color: #e0e7ff;"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>January 10, 2025</span>
+                            <span>9 min read</span>
+                        </div>
+                        <h3>Implementing AI in Your Project Management Workflow</h3>
+                        <p>Ready to integrate AI into your project management processes? This step-by-step guide will help you identify opportunities, select the right tools, and successfully implement AI solutions...</p>
+                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h3>Dart</h3>
+                    <p>AI-powered project management</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#integrations">Integrations</a></li>
+                        <li><a href="index.html#solutions">Solutions</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest updates</p>
+                    <form>
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dart AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
