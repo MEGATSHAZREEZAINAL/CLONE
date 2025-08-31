@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - Dart AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="announcement-bar">
+            Dart <a href="https://news.ycombinator.com/item?id=39442368">posted on Hacker News</a> and <a href="https://www.ycombinator.com/launches/KR4-dart-ai-powered-project-management">is live on Launch YC</a> today only—check it out!
+        </div>
+        <nav>
+            <div class="logo">
+                <a href="/">Dart</a>
+            </div>
+            <button class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="https://app.dartai.com/sign-up" class="btn-primary">Get Started for Free!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="background-color: var(--light-background); padding: 6rem 0; min-height: calc(100vh - 300px);">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <div class="auth-tab active" data-form="login-form">Login</div>
+                    <div class="auth-tab" data-form="signup-form">Sign Up</div>
+                </div>
+                
+                <div id="login-form" class="auth-form active">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" class="form-control" required>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <div>
+                                <input type="checkbox" id="remember-me">
+                                <label for="remember-me" style="display: inline; margin-left: 0.25rem;">Remember me</label>
+                            </div>
+                            <a href="#" style="font-size: 0.875rem;">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Login</button>
+                    </form>
+                    
+                    <div class="auth-separator">
+                        <span>Or login with</span>
+                    </div>
+                    
+                    <div class="social-auth">
+                        <button class="social-auth-btn">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button class="social-auth-btn">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="signup-form" class="auth-form">
+                    <form id="signupForm">
+                        <div class="form-group">
+                            <label for="signup-name">Full Name</label>
+                            <input type="text" id="signup-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input type="email" id="signup-email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-confirm-password">Confirm Password</label>
+                            <input type="password" id="signup-confirm-password" class="form-control" required>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <input type="checkbox" id="terms" required>
+                            <label for="terms" style="display: inline; margin-left: 0.25rem;">I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></label>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Sign Up</button>
+                    </form>
+                    
+                    <div class="auth-separator">
+                        <span>Or sign up with</span>
+                    </div>
+                    
+                    <div class="social-auth">
+                        <button class="social-auth-btn">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button class="social-auth-btn">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h3>Dart</h3>
+                    <p>AI-powered project management</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="integrations.html">Integrations</a></li>
+                        <li><a href="index.html#solutions">Solutions</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest updates</p>
+                    <form>
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dart AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast container for notifications -->
+    <div class="toast-container"></div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Login form submission
+        const loginForm = document.getElementById('loginForm');
+        
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const email = document.getElementById('login-email').value.trim();
+                const password = document.getElementById('login-password').value.trim();
+                
+                // Validate form
+                if (!email || !password) {
+                    showToast('Error', 'Please fill in all fields', 'error');
+                    return;
+                }
+                
+                if (!isValidEmail(email)) {
+                    showToast('Error', 'Please enter a valid email address', 'error');
+                    return;
+                }
+                
+                // Simulate login (in a real app, this would be an API call)
+                // Show loading state
+                const submitButton = loginForm.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+                
+                // Simulate API call delay
+                setTimeout(() => {
+                    // Reset button
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                    
+                    // Simulate successful login
+                    showToast('Success', 'Login successful! Redirecting to dashboard...', 'success');
+                    
+                    // Redirect to dashboard after a short delay
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                }, 1500);
+            });
+        }
+        
+        // Signup form submission
+        const signupForm = document.getElementById('signupForm');
+        
+        if (signupForm) {
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('signup-name').value.trim();
+                const email = document.getElementById('signup-email').value.trim();
+                const password = document.getElementById('signup-password').value.trim();
+                const confirmPassword = document.getElementById('signup-confirm-password').value.trim();
+                const terms = document.getElementById('terms').checked;
+                
+                // Validate form
+                if (!name || !email || !password || !confirmPassword) {
+                    showToast('Error', 'Please fill in all fields', 'error');
+                    return;
+                }
+                
+                if (!isValidEmail(email)) {
+                    showToast('Error', 'Please enter a valid email address', 'error');
+                    return;
+                }
+                
+                if (password.length < 8) {
+                    showToast('Error', 'Password must be at least 8 characters long', 'error');
+                    return;
+                }
+                
+                if (password !== confirmPassword) {
+                    showToast('Error', 'Passwords do not match', 'error');
+                    return;
+                }
+                
+                if (!terms) {
+                    showToast('Error', 'You must agree to the Terms of Service and Privacy Policy', 'error');
+                    return;
+                }
+                
+                // Simulate signup (in a real app, this would be an API call)
+                // Show loading state
+                const submitButton = signupForm.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating account...';
+                
+                // Simulate API call delay
+                setTimeout(() => {
+                    // Reset button
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                    
+                    // Simulate successful signup
+                    showToast('Success', 'Account created successfully! Redirecting to dashboard...', 'success');
+                    
+                    // Redirect to dashboard after a short delay
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                }, 1500);
+            });
+        }
+        
+        // Email validation helper
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // Toast notification function
+        function showToast(title, message, type = 'info') {
+            // Create toast container if it doesn't exist
+            let toastContainer = document.querySelector('.toast-container');
+            if (!toastContainer) {
+                toastContainer = document.createElement('div');
+                toastContainer.className = 'toast-container';
+                document.body.appendChild(toastContainer);
+            }
+            
+            // Create toast element
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            // Set toast content
+            toast.innerHTML = `
+                <div class="toast-icon">
+                    <i class="fas ${getIconForToastType(type)}"></i>
+                </div>
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+                <button class="toast-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            // Add toast to container
+            toastContainer.appendChild(toast);
+            
+            // Add close functionality
+            const closeBtn = toast.querySelector('.toast-close');
+            closeBtn.addEventListener('click', () => {
+                toast.style.animation = 'slideOut 0.3s forwards';
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            });
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.style.animation = 'slideOut 0.3s forwards';
+                    setTimeout(() => {
+                        if (toast.parentNode) {
+                            toast.remove();
+                        }
+                    }, 300);
+                }
+            }, 5000);
+        }
+        
+        // Get appropriate icon for toast type
+        function getIconForToastType(type) {
+            switch (type) {
+                case 'success': return 'fa-check-circle';
+                case 'error': return 'fa-exclamation-circle';
+                case 'warning': return 'fa-exclamation-triangle';
+                case 'info': 
+                default: return 'fa-info-circle';
+            }
+        }
+        
+        // Auth tabs functionality
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const authForms = document.querySelectorAll('.auth-form');
+        
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and forms
+                authTabs.forEach(t => t.classList.remove('active'));
+                authForms.forEach(f => f.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding form
+                const formId = tab.getAttribute('data-form');
+                document.getElementById(formId).classList.add('active');
+            });
+        });
+        
+        // Social auth buttons
+        const socialAuthBtns = document.querySelectorAll('.social-auth-btn');
+        
+        socialAuthBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const provider = btn.querySelector('span').textContent;
+                showToast('Info', `Authenticating with ${provider}...`, 'info');
+                
+                // Simulate authentication delay
+                setTimeout(() => {
+                    showToast('Success', `${provider} authentication successful! Redirecting to dashboard...`, 'success');
+                    
+                    // Redirect to dashboard after a short delay
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
+
